@@ -1,0 +1,45 @@
+==1626176== Memcheck, a memory error detector
+==1626176== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1626176== Using Valgrind-3.17.0 and LibVEX; rerun with -h for copyright info
+==1626176== Command: ./skiplist
+==1626176== Parent PID: 1621347
+==1626176== 
+==1626176== Invalid read of size 8
+==1626176==    at 0x401AF7: SkipList<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::~SkipList() (skip_table.h:145)
+==1626176==    by 0x401826: main (skiplist_test.cpp:5)
+==1626176==  Address 0x5b4e518 is 8 bytes inside a block of size 56 free'd
+==1626176==    at 0x4C39209: operator delete(void*, unsigned long) (vg_replace_malloc.c:814)
+==1626176==    by 0x401AF2: SkipList<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::~SkipList() (skip_table.h:144)
+==1626176==    by 0x401826: main (skiplist_test.cpp:5)
+==1626176==  Block was alloc'd at
+==1626176==    at 0x4C36833: operator new(unsigned long) (vg_replace_malloc.c:417)
+==1626176==    by 0x40263B: SkipList<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::create_node(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int) (skip_table.h:154)
+==1626176==    by 0x402414: SkipList<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::insert_element(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (skip_table.h:329)
+==1626176==    by 0x401C81: SkipList<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::load_data_file() (skip_table.h:453)
+==1626176==    by 0x4017C6: main (skiplist_test.cpp:21)
+==1626176== 
+==1626176== Invalid read of size 8
+==1626176==    at 0x401AFB: SkipList<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::~SkipList() (skip_table.h:145)
+==1626176==    by 0x401826: main (skiplist_test.cpp:5)
+==1626176==  Address 0x5b4e590 is 0 bytes inside a block of size 24 free'd
+==1626176==    at 0x4C39F9D: operator delete[](void*) (vg_replace_malloc.c:938)
+==1626176==    by 0x40201E: Node<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::~Node() (skip_table.h:55)
+==1626176==    by 0x401AE5: SkipList<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::~SkipList() (skip_table.h:144)
+==1626176==    by 0x401826: main (skiplist_test.cpp:5)
+==1626176==  Block was alloc'd at
+==1626176==    at 0x4C37ADF: operator new[](unsigned long) (vg_replace_malloc.c:579)
+==1626176==    by 0x401F96: Node<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int) (skip_table.h:46)
+==1626176==    by 0x402653: SkipList<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::create_node(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int) (skip_table.h:154)
+==1626176==    by 0x402414: SkipList<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::insert_element(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (skip_table.h:329)
+==1626176==    by 0x401C81: SkipList<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::load_data_file() (skip_table.h:453)
+==1626176==    by 0x4017C6: main (skiplist_test.cpp:21)
+==1626176== 
+==1626176== 
+==1626176== HEAP SUMMARY:
+==1626176==     in use at exit: 0 bytes in 0 blocks
+==1626176==   total heap usage: 28 allocs, 28 frees, 83,412 bytes allocated
+==1626176== 
+==1626176== All heap blocks were freed -- no leaks are possible
+==1626176== 
+==1626176== For lists of detected and suppressed errors, rerun with: -s
+==1626176== ERROR SUMMARY: 20 errors from 2 contexts (suppressed: 0 from 0)

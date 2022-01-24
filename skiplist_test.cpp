@@ -1,10 +1,12 @@
 #include<iostream>
 #include"skip_table.h"
+#include<stdlib.h>
 
-int main(){
-    SkipList<std::string, std::string> skiplist(13);
+int main() {
+    SkipList<int, std::string> skiplist(13);
+    //SkipList<std::string, std::string> skiplist(13);
     std::cout << "create skip list Success " << std::endl;
-    
+
     // skiplist.insert_element(2, " two two ");
     // skiplist.insert_element(5, " five two ");
     // skiplist.insert_element(6, " six two ");
@@ -16,13 +18,17 @@ int main(){
     // skiplist.insert_element(0, " zero two ");
     // skiplist.insert_element(8, " eight two ");
 
+
+
     skiplist.load_data_file();
 
+    skiplist.delete_element(5);
+    skiplist.find_element(2);
     skiplist.showhole_list();
 
     std::cout << "Size of the Skip List : " << skiplist.getSize() << std::endl;
 
-    // skiplist.write_data_file();
+    //skiplist.write_data_file();
 
 
     return 0;
